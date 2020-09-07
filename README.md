@@ -15,9 +15,9 @@ y listo! tienes tu propia todo list con Flask en [127.0.0.1](http://127.0.0.1:50
 Es una lista donde puedes ir anotando tus "que haceres"
 
 - [x] Hacer tarea
-- [] Terminar webapp con _Flask_
+- [ ] Terminar webapp con _Flask_
 - [x] Terminar tutorial de HTML
-- [] Terminar tutorial de CSS
+- [ ] Terminar tutorial de CSS
 
 ## Datos para quienes no saben que es Flask:
 
