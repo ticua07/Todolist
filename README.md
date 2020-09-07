@@ -24,7 +24,7 @@ _Un ejemplo seria_
 ## Datos para quienes no saben que es Flask:
 
 > "Flask es auto denominado como un microframework de python para crear aplicaciones web, es decir, páginas web dinamicas, APIs, etc"
-info: https://codigofacilito.com/articulos/por-que-flask
+https://codigofacilito.com/articulos/por-que-flask
 
 Flask es un _"microframework"_ que significa que tiene lo minimo para crear webs, si quieres hacer cosas como conectarte a una base de datos necesitas otras librerias (sqlite3, etc)
 
