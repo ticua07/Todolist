@@ -18,7 +18,7 @@ _Un ejemplo seria_
 
 - [x] Hacer tarea
 - [x] Terminar tutorial de HTML
-- [z] Terminar tutorial de CSS
+- [x] Terminar tutorial de CSS
 - [ ] Terminar webapp con _Flask_
 
 ## Datos para quienes no saben que es Flask:
