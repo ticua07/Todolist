@@ -38,6 +38,11 @@
           />
         </div>
         <button type="submit" class="btn btn-primary">Buscar nota!</button>
+        {% if search %}
+        <p style="color: red"></p>
+        {% else %}
+        <p style="color: red">No puedes hacer una busqueda vacia</p>
+        {% endif %}
       </form>
     </div>
     <br>

@@ -1,4 +1,5 @@
 from flask import Flask , render_template, request, redirect
+from flask_api import status
 import sqlite3
 from gevent.pywsgi import WSGIServer
 """
@@ -16,7 +17,7 @@ except Exception:
 app = Flask(__name__)
 @app.route('/')
 def main():
-    return render_template('index.html', todo=c.execute("SELECT note FROM todo"), name=True)
+    return render_template('index.html', todo=c.execute("SELECT note FROM todo"), name=True, search=True)
 
 @app.route("/add_note/", methods=["GET","POST"])
 def add_note():
@@ -24,7 +25,7 @@ def add_note():
         req = request.form
         note = req.get("add_note")
         if note.strip() == "":
-            return render_template("index.html", name=False, todo=c.execute("SELECT note FROM todo"))
+            return render_template("index.html", name=False, search=True, todo=c.execute("SELECT note FROM todo"))
         c.execute(f"INSERT INTO todo VALUES ('{note}')")
         conn.commit()
         return redirect("/")
@@ -43,7 +44,7 @@ def delete():
 def edit(nota):
     for i in c.execute("SELECT note FROM todo"):
         if i[0] == nota:
-            return render_template("edit.html", value=nota)
+            return render_template("edit.html", value=nota, name=True)
         else:
             return """
 <!DOCTYPE html>
@@ -78,6 +79,8 @@ def finaledit(nota):
     if request.method == "POST":
         req = request.form
         note = req.get("edit")
+        if note.strip() == "":
+            return render_template("edit.html", value=nota, name=False)
         c.execute(f"""
         UPDATE todo
         SET note = '{note}'
@@ -99,6 +102,8 @@ def search():
     if request.method == "POST":
         req = request.form
         note = req.get("search")
+        if note.strip() == "":
+            return render_template("index.html", search=False, name=True, todo=c.execute("SELECT note FROM todo"))
     for i in c.execute("SELECT note FROM todo"):
         notes.append(i[0])
     for i in notes:
@@ -107,8 +112,17 @@ def search():
     return render_template("search.html", notas=notas, note=note)
 
 
+@app.errorhandler(404)
+def error_404(e):
+    return render_template("error_404.html", error=e)
 
+@app.errorhandler(403)
+def error_403(e):
+    return render_template("error_403.html", error=e)
 
+@app.errorhandler(500)
+def error_500(e):
+    return render_template("error_500.html", error=e)
 
 
 if __name__ == "__main__":
