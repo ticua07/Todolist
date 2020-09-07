@@ -2,10 +2,10 @@ Para ejecutar la app haz
 ```
 pip install -r requierements.txt
 ```
-una vez instalado requierements.txt corre main.py
+una vez instalado requierements.txt corre app.py
 
 ```
-python main.py
+python app.py
 ```
 
 y listo! tienes tu propia todo list con Flask en [127.0.0.1](http://127.0.0.1:5000)
