@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>.
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jumbotron container-fluid" style="padding: 0.7%;"><p>Notas que contienen "{{ note }}"</p></div>
+    {% for i in notas %}
+    <div class="container-fluid">
+    <div
+      class="jumbotron"
+      style="
+        padding: 1%;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+      "
+    >
+      <p>{{i}}</p>
+      <div style="flex: 1"></div>
+      <form action="/edit/{{ i }}" method="post">
+        <button type="submit" class="btn btn-secondary">Editar</button>
+      </form>
+      <form action="/delete/" method="post">
+        <button type="submit" class="btn btn-danger" name="delete" value="{{i}}">Borrar!</button>
+      </form>
+      <hr />
+    </div>
+    </div>
+    {% endfor %}
+    <div class="container-fluid">
+        <button class="btn btn-success" href="index.html">Volver</button>
+    </div>
+</body>
+</html>
