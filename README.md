@@ -16,9 +16,9 @@ Es una lista donde puedes ir anotando tus "que haceres"
 
 _Un ejemplo seria_
 
-- [x] Hacer tarea
-- [x] Terminar tutorial de HTML
-- [x] Terminar tutorial de CSS
+- [x] ~~Hacer tarea
+- [x] ~~Terminar tutorial de HTML
+- [x] ~~Terminar tutorial de CSS
 - [ ] Terminar webapp con _Flask_
 
 ## Datos para quienes no saben que es Flask:
